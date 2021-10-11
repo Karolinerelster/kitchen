@@ -21,3 +21,20 @@ h1 {
 svg {
   width: 50vw;
 }
+
+#color-picker div {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+input {
+  width: 120%;
+  height: 120%;
+  border: none;
+  position: relative;
+  top: -1em;
+  left: -1em;
+  
+}

@@ -52,40 +52,17 @@ function startManipulationTheSvg() {
     over = document.querySelector("#over");
     under = document.querySelector("#under");
     wall = document.querySelector("#wall");
-
-
-    console.log("#window_outsite", windowOutsite);
-    console.log("#window", windowColor);
-    console.log("#flowers", flowers);
-    console.log("#emhatte", emhatte);
-    console.log("#sink", sink);
-    console.log("#oven", oven);
-    console.log("#oven_details", oven_details);
-    console.log("#pot", pot);
-    console.log("#floor", floor);
-    console.log("#sokkel", sokkel);
-    console.log("#sides", sides);
-    console.log("#tiles", tiles);
-    console.log("#counter", counter);
-    console.log("#over", over);
-    console.log("#under", under);
-    console.log("#wall", wall);
-
-    console.log("startManipulationTheSvg");
     init();
 }
 
 
 function setColor(element, colorString) {
-    console.log("setColor", element);
-    console.log(element);
-    console.log("colorString",colorString);
     element.style.fill = colorString;
 }
 
 
 function init() {
-    console.log("init");
+    // set initial colors for the kitchen
     setColor(windowOutsite, "#ffffff");
     setColor(windowColor, "#ffffff");
     setColor(flowers, "#ffffff");
@@ -104,8 +81,6 @@ function init() {
     setColor(wall, "#ffffff");
 
 
-
-
     windowOutsite.addEventListener("click", (event) => {
         setColor(event.target, currentColor);
         console.log(event.target);
@@ -117,7 +92,6 @@ function init() {
         console.log(event.target);
 
     })
-
 
     windowColor.addEventListener("click", (event) => {
         setColor(event.target, currentColor);
@@ -206,6 +180,10 @@ function init() {
             currentColor = event.target.style.backgroundColor;
             console.log("color clicked", currentColor);
         })
-    })
+    });
+
+    document.querySelector("input").addEventListener("change", (event) => {
+        currentColor = document.querySelector("input").value;
+      })
 
 };
