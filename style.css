@@ -1,0 +1,23 @@
+#shadow {
+  pointer-events: none;
+}
+
+.color-selector {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: black;
+  position: relative;
+  text-transform: uppercase;
+}
+
+svg {
+  width: 50vw;
+}
