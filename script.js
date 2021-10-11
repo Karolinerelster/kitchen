@@ -107,97 +107,97 @@ function init() {
 
 
     windowOutsite.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(windowOutsite, currentColor);
         console.log(event.target);
 
     })
 
     wall.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(wall, currentColor);
         console.log(event.target);
 
     })
 
 
     windowColor.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(windowColor, currentColor);
         console.log(event.target);
 
     })
 
     flowers.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(flowers, currentColor);
         console.log(event.target);
 
     })
 
     emhatte.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(emhatte, currentColor);
         console.log(event.target);
 
     })
 
     floor.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(floor, currentColor);
         console.log(event.target);
 
     })
 
     oven.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(oven, currentColor);
         console.log(event.target);
 
     })
 
     oven_details.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(oven_details, currentColor);
         console.log(event.target);
 
     })
 
     sides.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(sides, currentColor);
         console.log(event.target);
 
     }) 
     
     sokkel.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(sokkel, currentColor);
         console.log(event.target);
 
     }) 
     tiles.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(tiles, currentColor);
         console.log(event.target);
 
     })
     
     counter.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(counter, currentColor);
         console.log(event.target);
 
     })
 
     over.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(over, currentColor);
         console.log(event.target);
 
     })
     
     under.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(under, currentColor);
         console.log(event.target);
 
     })
 
     sink.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(sink, currentColor);
         console.log(event.target);
 
     })
     
     pot.addEventListener("click", (event) => {
-        setColor(event.target, currentColor);
+        setColor(pot, currentColor);
         console.log(event.target);
 
     })
