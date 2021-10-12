@@ -16,7 +16,10 @@ let counter;
 let over;
 let under;
 let wall;
-
+let colorPicker = new iro.ColorPicker('#picker', {
+    width: 50,
+    color: "#f00"
+});
 
 
 
@@ -104,7 +107,10 @@ function init() {
     setColor(wall, "#ffffff");
 
 
-
+    
+    colorPicker.on("color:change", (color) => {
+        currentColor = color.hexString;
+      });
 
     windowOutsite.addEventListener("click", (event) => {
         setColor(windowOutsite, currentColor);
