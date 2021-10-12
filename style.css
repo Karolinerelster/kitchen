@@ -86,7 +86,7 @@ section {
 .colors {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 1vw;
   margin-bottom: 3vw;
 }
@@ -97,6 +97,10 @@ section {
   height: 3.5vw;
   border-radius: 1.75vw;
   box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
+}
+
+#picker{
+  margin-bottom: 1em;
 }
 
 /* CLEAR BUTTON */
