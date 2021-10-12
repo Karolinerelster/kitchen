@@ -18,7 +18,10 @@ let under;
 let wall;
 let colorPicker = new iro.ColorPicker('#picker', {
     width: 50,
-    color: "#f00"
+    color: "#f00",
+    display: "grid",
+    borderWidth: 0,
+    padding: 1,
 });
 
 

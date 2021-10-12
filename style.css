@@ -88,7 +88,7 @@ section {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1vw;
-  margin-bottom: 3vw;
+  margin-bottom: 2vw;
 }
 
 .color-selector {
@@ -100,7 +100,27 @@ section {
 }
 
 #picker{
-  margin-bottom: 1em;
+  margin-bottom: 2vw;
+}
+
+.IroColorPicker{
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1vw;
+}
+
+.IroHandle circle {
+  stroke:rgb(201, 201, 201);
+  
+}
+.IroColorPicker svg {
+  box-shadow: none;
+
+}
+.IroWheelBorder{
+  box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
+}
+.IroSliderGradient{
+  box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
 }
 
 /* CLEAR BUTTON */
