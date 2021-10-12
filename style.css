@@ -1,23 +1,145 @@
+/*------------- GENERAL -------------*/
+body {
+  margin: 0;
+}
+
+/*-------- SVG PHOTO KITCHEN---------*/
+
 #shadow {
   pointer-events: none;
 }
 
-.color-selector {
-  width: 100px;
-  height: 100px;
-  display: inline-block;
+svg {
+  width: 50vw;
+  box-shadow: rgba(128, 128, 128, 0.418) 10px 10px 10px;
 }
 
+/*------------- HEADER -------------*/
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo_title {
+  display: flex;
+  margin-left: 5vw;
+  gap: 2vw;
+}
+
+.logo {
+  width: 3vw;
+}
+
+/*-------------- TEXT -------------*/
 h1 {
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
-  font-weight: 900;
-  font-size: 1.5rem;
+  font-weight: 400;
+  font-size: 2rem;
   color: black;
   position: relative;
   text-transform: uppercase;
 }
 
-svg {
-  width: 50vw;
+h2 {
+  margin-right: 11vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1.7rem;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  margin-top: 1vw;
+  margin-bottom: 0;
+}
+
+/*---------- SECTION -------------*/
+section {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.options {
+  margin-right: 10vw;
+}
+
+/* ADD ON'S */
+.addon1 {
+  width: 3vw;
+  height: 3vw;
+}
+
+.addons {
+  display: flex;
+  gap: 1vw;
+}
+
+/* COLOR-SELECTOR */
+.colors {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1vw;
+  margin-bottom: 3vw;
+}
+
+.color-selector {
+  display: inline-block;
+  width: 3.5vw;
+  height: 3.5vw;
+  border-radius: 1.75vw;
+  box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
+}
+
+/* CLEAR BUTTON */
+.button_clear {
+  width: 12vw;
+  height: 4vw;
+  background-color: white;
+  border: solid black 1px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  padding: 10px 0px;
+}
+
+.button_clear img {
+  width: 2vw;
+}
+
+/*-------- SELECTED --------*/
+#selected {
+  margin-left: 5vw;
+}
+
+.option_logo {
+  width: 4vw;
+}
+
+ul {
+  display: flex;
+  gap: 2vw;
+  padding-left: 0;
+}
+
+.option {
+  width: 4vw;
+  height: 4vw;
+  border: dashed 3px black;
+}
+
+.price {
+  display: flex;
+  margin-left: 17vw;
+  gap: 3vw;
 }

@@ -4,31 +4,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen</title>
+    <title>COQUINA KITCHEN</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;900&display=swap" rel="stylesheet">
 
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Kitchen</h1>
+<header>
+    <div class="logo_title">
+        <img class="logo" src="assets/logo.svg" alt="logo">
+        <h1><b>COQUINA</b> KITCHEN</h1>
+    </div>
+    <h2>CONFIGURATOR</h2>
+</header>
+
     <section>
-        
-          
+        <!-- SVG FILE -->
+        <div class="svg_container"></div>
+
+        <!-- OPTIONS -->
+        <div class="options">
+            <h3>ADD ON'S</h3>
+            <div class="addons">
+                <div class="addon1" style="background-color: #FFB6C1"></div>
+                <div class="addon1" style="background-color: #FFB6C1"></div>
+                <div class="addon1" style="background-color: #FFB6C1"></div>
+
+            </div>
+            <h3>RECOMMENDED COLORS</h3>
+            <div class="colors">
+
+                <!-- COLOR PICKER  -->
+                <div class="color-selector" style="background-color: #FFB6C1"></div>
+                <div class="color-selector" style="background-color: #F0E68C"></div>
+                <div class="color-selector" style="background-color: #8FBC8F"></div>
+                <div class="color-selector" style="background-color: #D2E2D2"></div>
+                <div class="color-selector" style="background-color: #F5F5F5"></div>
+                <div class="color-selector" style="background-color: #FFFFFF"></div>
+                <div class="color-selector" style="background-color: #F08080"></div>
+                <div class="color-selector" style="background-color: #BDB76B"></div>
+                <div class="color-selector" style="background-color: #2E8B57"></div>
+                <div class="color-selector" style="background-color: #9ED0CE"></div>
+                <div class="color-selector" style="background-color: #D3D3D3"></div>
+                <div class="color-selector" style="background-color: #FDF5E6"></div>
+                <div class="color-selector" style="background-color: #CE6C3C"></div>
+                <div class="color-selector" style="background-color: #808000"></div>
+                <div class="color-selector" style="background-color: #2F4F4F"></div>
+                <div class="color-selector" style="background-color: #5F9EA0"></div>
+                <div class="color-selector" style="background-color: #505050"></div>
+                <div class="color-selector" style="background-color: #FAEBD7"></div>
+
+                <!-- CUSTOM COLOR PICKER -->
+                <div class="color-selector" style="background:linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)"></div>
+
+
+
+            </div>
+
+            <!-- CLEAR BUTTON -->
+            <button class="button_clear"> <img src="assets/bin.svg">CLEAR</button>
+        </div>  
     </section>
 
-    <div>
-        <div class="color-selector" style="background-color: rgba(255, 72, 157, 0.884);"></div>
-        <div class="color-selector" style="background-color: LightPink;"></div>
-        <div class="color-selector" style="background-color: LightCoral"></div>
-        <div class="color-selector" style="background-color: Peru;"></div>
-        <div class="color-selector" style="background-color: Khaki;"></div>
-        <div class="color-selector" style="background-color: DarkKhaki"></div>
-        <div class="color-selector" style="background-color: DarkSeaGreen"></div>
-        <div class="color-selector" style="background-color: rgb(210, 226, 210);"></div>
+    <!-- SELECTED OPTIONS -->
+    <div id="selected">
+       <h3>YOUR CHOICES</h3> 
+        <ul>
+            <img class="option_logo" src="assets/logo.svg" alt="logo">
+            <p>+</p>
+            <div class="option"></div>
+            <p>+</p>
+            <div class="option"></div>
+            <p>+</p>
+            <div class="option"></div>
+            <p>+</p>
+            <div class="option"></div>
 
-    </div>
+          <!-- featureElements are added here! -->
+
+
+          <div class="price">
+            <p>TOTAL</p>
+            <p>3360DKK</p>
+
+          </div>
+        </ul>
+      </div>
+
+
 
     <script src="script.js"></script>
 </body>

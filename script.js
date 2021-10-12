@@ -30,7 +30,7 @@ let currentColor = "rgb(255, 227, 251)";
 async function start(){
     let response = await fetch("assets/kokken-02.svg");
     let mySvgData = await response.text();
-    document.querySelector("section").innerHTML = mySvgData;
+    document.querySelector(".svg_container").innerHTML = mySvgData;
     startManipulationTheSvg();
 };
 
