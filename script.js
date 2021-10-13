@@ -64,6 +64,7 @@ function setColor(element, colorString) {
 }
 
 function init() {
+<<<<<<< HEAD
   console.log("init");
   setColor(windowOutsite, "#ffffff");
   setColor(windowColor, "#ffffff");
@@ -171,6 +172,134 @@ function init() {
     });
   });
   document.querySelector(".button_clear").addEventListener("click", () => {
+=======
+    console.log("init");
+    setColor(windowOutsite, "#ffffff");
+    setColor(windowColor, "#ffffff");
+    setColor(flowers, "#ffffff");
+    setColor(emhatte, "#ffffff");
+    setColor(sink, "#ffffff");
+    setColor(oven, "#ffffff");
+    setColor(oven_details, "#ffffff");
+    setColor(pot, "#ffffff");
+    setColor(floor, "#ffffff");
+    setColor(sokkel, "#ffffff");
+    setColor(sides, "#ffffff");
+    setColor(tiles, "#ffffff");
+    setColor(counter, "#ffffff");
+    setColor(over, "#ffffff");
+    setColor(under, "#ffffff");
+    setColor(wall, "#ffffff");
+
+
+    
+    colorPicker.on("color:change", (color) => {
+        currentColor = color.hexString;
+      });
+
+    windowOutsite.addEventListener("click", (event) => {
+        setColor(windowOutsite, currentColor);
+        console.log(event.target);
+
+    })
+
+    wall.addEventListener("click", (event) => {
+        setColor(wall, currentColor);
+        console.log(event.target);
+
+    })
+
+
+    windowColor.addEventListener("click", (event) => {
+        setColor(windowColor, currentColor);
+        console.log(event.target);
+
+    })
+
+    flowers.addEventListener("click", (event) => {
+        setColor(flowers, currentColor);
+        console.log(event.target);
+
+    })
+
+    emhatte.addEventListener("click", (event) => {
+        setColor(emhatte, currentColor);
+        console.log(event.target);
+
+    })
+
+    floor.addEventListener("click", (event) => {
+        setColor(floor, currentColor);
+        console.log(event.target);
+
+    })
+
+    oven.addEventListener("click", (event) => {
+        setColor(oven, currentColor);
+        console.log(event.target);
+
+    })
+
+    oven_details.addEventListener("click", (event) => {
+        setColor(oven_details, currentColor);
+        console.log(event.target);
+
+    })
+
+    sides.addEventListener("click", (event) => {
+        setColor(sides, currentColor);
+        console.log(event.target);
+
+    }) 
+    
+    sokkel.addEventListener("click", (event) => {
+        setColor(sokkel, currentColor);
+        console.log(event.target);
+
+    }) 
+    tiles.addEventListener("click", (event) => {
+        setColor(tiles, currentColor);
+        console.log(event.target);
+
+    })
+    
+    counter.addEventListener("click", (event) => {
+        setColor(counter, currentColor);
+        console.log(event.target);
+
+    })
+
+    over.addEventListener("click", (event) => {
+        setColor(over, currentColor);
+        console.log(event.target);
+
+    })
+    
+    under.addEventListener("click", (event) => {
+        setColor(under, currentColor);
+        console.log(event.target);
+
+    })
+
+    sink.addEventListener("click", (event) => {
+        setColor(sink, currentColor);
+        console.log(event.target);
+
+    })
+    
+    pot.addEventListener("click", (event) => {
+        setColor(pot, currentColor);
+        console.log(event.target);
+
+    })
+    document.querySelectorAll(".color-selector").forEach(element => {
+        element.addEventListener("click", event => {
+            currentColor = event.target.style.backgroundColor;
+            console.log("color clicked", currentColor);
+        })
+    });
+    document.querySelector(".button_clear").addEventListener("click", () => {
+>>>>>>> 99040592f7760ab5bceebe3bbc4c56167d4521b2
       console.log("clear colors")
     windowOutsite.style.fill = "#ffffff";
     windowColor.style.fill = "#ffffff";
@@ -189,4 +318,9 @@ function init() {
     under.style.fill = "#ffffff";
     wall.style.fill = "#ffffff";
   });
+<<<<<<< HEAD
 }
+=======
+
+};
+>>>>>>> 99040592f7760ab5bceebe3bbc4c56167d4521b2

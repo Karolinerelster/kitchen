@@ -135,11 +135,18 @@ section {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   padding: 10px 0px;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  cursor:pointer;
+>>>>>>> 99040592f7760ab5bceebe3bbc4c56167d4521b2
 }
 
 .button_clear img {
   width: 2vw;
+}
+.button_clear:hover{
+  box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
 }
 
 .button_clear:hover{
