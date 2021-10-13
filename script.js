@@ -1,5 +1,16 @@
 "use strict";
 
+// The model of all features
+const features = {
+    board: false,
+    knife: false,
+    oven: false,
+    toaster: false,
+    solarfan: false,
+    handles_cobber: false,
+    handles_steel: false
+  };
+
 let windowOutsite;
 let windowColor;
 let flowers;
