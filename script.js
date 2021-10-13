@@ -35,6 +35,9 @@ let colorPicker = new iro.ColorPicker("#picker", {
   padding: 1,
 });
 
+let initialPrice = Number(document.querySelector("#total span").textContent);
+
+
 document.addEventListener("DOMContentLoaded", start);
 
 let currentColor = "rgb(255, 227, 251)";
@@ -68,9 +71,6 @@ function startManipulationTheSvg() {
 }
 
 function setColor(element, colorString) {
-  console.log("setColor", element);
-  console.log(element);
-  console.log("colorString", colorString);
   element.style.fill = colorString;
 }
 
@@ -172,49 +172,57 @@ function init() {
     }
 
     //get addons stored in local storage
-  console.log("This is in local storage", localStorage.getItem("handles_cobber"));
-  console.log("This is in local storage", localStorage.getItem("board"));
 
   if (localStorage.getItem("board") === "true") {
-    let feature = "board"
-    addElement(feature);
+    let feature = "board";
+    let price = document.querySelector(`.addons img[data-feature="${feature}"]`).dataset.price;
+    addElement(feature, price);
   }
   if (localStorage.getItem("knife") === "true") {
     let feature = "knife"
-    addElement(feature);
+    let price = document.querySelector(`.addons img[data-feature="${feature}"]`).dataset.price;
+    addElement(feature, price);
   }
   if (localStorage.getItem("oven") === "true") {
     let feature = "oven"
-    addElement(feature);
+    let price = document.querySelector(`.addons img[data-feature="${feature}"]`).dataset.price;
+    addElement(feature, price);
   }
   if (localStorage.getItem("toaster") === "true") {
     let feature = "toaster"
-    addElement(feature);
+    let price = document.querySelector(`.addons img[data-feature="${feature}"]`).dataset.price;
+    addElement(feature, price);
   }
   if (localStorage.getItem("solarfan") === "true") {
     let feature = "solarfan"
-    addElement(feature);
+    let price = document.querySelector(`.addons img[data-feature="${feature}"]`).dataset.price;
+    addElement(feature, price);
   }
   if (localStorage.getItem("handles_cobber") === "true") {
     let feature = "handles_cobber"
-    addElement(feature);
+    let price = document.querySelector(`.addons img[data-feature="${feature}"]`).dataset.price;
+    addElement(feature, price);
   }
   if (localStorage.getItem("handles_steel") === "true") {
     let feature = "handles_steel"
-    addElement(feature);
+    let price = document.querySelector(`.addons img[data-feature="${feature}"]`).dataset.price;
+    addElement(feature, price);
   }
+  calculateTotalPrice();
   } 
+  
+
   
 
   // event listeners
 
-  //select a customized color
+  // 1)select a customized color
 
   colorPicker.on("color:change", (color) => {
     currentColor = color.hexString;
   });
 
-  //add a color to an element in the image
+  //2) add a color to an element in the image
 
   windowOutsite.addEventListener("click", (event) => {
     setColor(windowOutsite, currentColor);
@@ -279,7 +287,7 @@ function init() {
     setColor(pot, currentColor);
   });
 
-  // suggested colors selected
+  // 3) suggested colors selected
   document.querySelectorAll(".color-selector").forEach((element) => {
     element.addEventListener("click", (event) => {
       currentColor = event.target.style.backgroundColor;
@@ -287,15 +295,15 @@ function init() {
     });
   });
 
-  // save preferences
+  // 4) save preferences
 
   document.querySelector(".button_save").addEventListener("click", saveDesign);
 
-  //get to the initial stage
+  //5) clear all the options
 
   document.querySelector(".button_clear").addEventListener("click", resetOptions);
 
-  // Add addson
+  //6) Add addson
 
   document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
 }
@@ -303,7 +311,9 @@ function init() {
 function toggleOption(event) {
   const target = event.currentTarget;
   const feature = target.dataset.feature;
-  console.log(feature);
+  const price = Number(target.dataset.price);
+ 
+  console.log(feature, price);
 
   // Toggle feature in "model"
   features[feature] = !features[feature];
@@ -322,7 +332,10 @@ function toggleOption(event) {
 
     target.classList.add("chosen");
     document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
-    document.querySelector("#selected ul").appendChild(createFeatureElement(feature));
+    document.querySelector("#selected ul").appendChild(createFeatureElement(feature, price));
+
+    document.querySelector("#total span").textContent = initialPrice + price;
+    
     const firstFrame = document.querySelector(`.addons img[data-feature="${feature}"]`).getBoundingClientRect();
     const lastFrame = document.querySelector(`div[data-feature="${feature}"]`).getBoundingClientRect();
     const deltaX = firstFrame.left - lastFrame.left;
@@ -337,6 +350,7 @@ function toggleOption(event) {
       ],
       { duration: 200, easing: "ease-in-out" }
     );
+    calculateTotalPrice()
   }
   // Else - if the feature (became) turned off:
   // - no longer mark target as chosen
@@ -359,16 +373,18 @@ function toggleOption(event) {
 
     featureElement.animate([{ transformOrigin: "top left", transform: `translate(${deltaX}px, -${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` }], { duration: 200, easing: "ease-in-out" });
 
-    Promise.all(featureElement.getAnimations().map((animation) => animation.finished)).then(() => featureElement.remove());
+    Promise.all(featureElement.getAnimations().map((animation) => animation.finished)).then(() => featureElement.remove()).then(()=>calculateTotalPrice());
+    
   }
 }
 
 // Create featureElement to be appended to #selected ul - could have used a <template> instead
-function createFeatureElement(feature) {
+function createFeatureElement(feature, price) {
   const div = document.createElement("div");
   const p = document.createElement("p");
   p.textContent = "+";
   div.dataset.feature = feature;
+  div.dataset.price = price;
   div.classList.add("selected_option");
 
   const img = document.createElement("img");
@@ -440,6 +456,7 @@ function resetOptions() {
     let element = "handles_steel"
     removeElement(element);
   }
+  calculateTotalPrice()
 }
 
 //add feature to save design
@@ -485,10 +502,9 @@ function saveDesign() {
 }
 
 
-function addElement(feature){
-  console.log("adding selected feature");
+function addElement(feature, price){
   document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
-  document.querySelector("#selected ul").appendChild(createFeatureElement(feature));
+  document.querySelector("#selected ul").appendChild(createFeatureElement(feature, price));
   document.querySelector(`.addons img[data-feature="${feature}"]`).classList.add("chosen");
   features[feature] = true;
 };
@@ -500,4 +516,18 @@ function removeElement(element){
   document.querySelector(`#selected div[data-feature="${element}"]`).remove();
   document.querySelector(`.addons img[data-feature="${element}"]`).classList.remove("chosen");
   features[element] = false;
+  calculateTotalPrice()
+};
+
+// calculate price
+
+function calculateTotalPrice() {
+  let finalPrice = initialPrice
+
+document.querySelectorAll("ul div").forEach((element)=>{
+finalPrice = finalPrice + Number(element.dataset.price)
+})
+
+document.querySelector("#total span").textContent = finalPrice
+
 }
