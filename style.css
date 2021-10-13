@@ -227,3 +227,17 @@ ul {
   margin-left: 17vw;
   gap: 3vw;
 }
+
+.cls-2:hover {
+  opacity: 80%;
+  stroke: rgb(247, 73, 73);
+  stroke-width: 10px;
+}
+
+path {
+  cursor: url(icons/1x/paint.png), auto;
+}
+
+.colors {
+  cursor: url(icons/1x/paint.png), auto;
+}
