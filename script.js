@@ -76,6 +76,56 @@ function setColor(element, colorString) {
 
 function init() {
   console.log("init");
+
+  //first, check if there is something in the localStorage
+  if(localStorage.length >0){
+    console.log("local storage is", localStorage);
+    let storagedwindowOutsite = localStorage.getItem("windowOutsite");
+  let storagedwindowColor = localStorage.getItem("windowColor");
+  let storagedflowers = localStorage.getItem("flowers");
+  let storagedemhatte = localStorage.getItem("emhatte");
+  let storagedsink = localStorage.getItem("sink");
+  let storagedoven = localStorage.getItem("oven");
+  let storagedovenDetails = localStorage.getItem("ovenDetails");
+  let storagedpot = localStorage.getItem("pot");
+  let storagedfloor = localStorage.getItem("floor");
+ let  storagedsokkel = localStorage.getItem("sokkel");
+ let  storagedsides = localStorage.getItem("sides");
+ let  storagedtiles = localStorage.getItem("tiles");
+  let storagedcounter = localStorage.getItem("counter");
+ let  storagedover = localStorage.getItem("over");
+  let storagedunder = localStorage.getItem("under");
+  if (storagedwindowOutsite != ""){setColor(windowOutsite, storagedwindowOutsite)}
+  else {setColor(windowOutsite, "#ffffff")};
+  if (storagedwindowColor != ""){setColor(windowColor, storagedwindowColor)}
+else {setColor(windowColor, "#ffffff")};
+  if (flowers != ""){setColor(flowers, storagedflowers)}
+ else {setColor(flowers, "#ffffff")};
+  if (storagedemhatte != ""){setColor(emhatte, storagedemhatte)}
+ else {setColor(emhatte, "#ffffff")};
+  if (storagedsink != ""){setColor(sink, storagedsink)}
+ else {setColor(sink, "#ffffff")};
+  if (storagedoven != ""){setColor(oven, storagedoven)}
+  else {setColor(oven, "#ffffff")};
+  if (storagedovenDetails != ""){setColor(oven_details, storagedovenDetails)}
+  else {setColor(oven_details, "#ffffff")};
+  if (storagedpot != ""){setColor(pot, storagedpot)}
+  else {setColor(pot, "#ffffff")};
+  if (floor != ""){setColor(floor, storagedfloor)}
+ else {setColor(floor, "#ffffff")};
+  if (storagedsokkel != ""){setColor(sokkel, storagedsokkel)}
+ else {setColor(sokkel, "#ffffff")};
+  if (storagedsides != ""){setColor(sides, storagedsides)}
+  else {setColor(sides, "#ffffff")};
+  if (storagedtiles!= ""){setColor(tiles, storagedtiles)}
+  else {setColor(tiles, "#ffffff")};
+  if (storagedcounter != ""){setColor(counter, storagedcounter)}
+  else {setColor(counter, "#ffffff")};
+  if (storagedover != ""){setColor(over, storagedover)}
+  else {setColor(over, "#ffffff")};
+  if (storagedunder != ""){setColor(under, storagedunder)}
+  else {setColor(under, "#ffffff")}
+  }  /* else{
   setColor(windowOutsite, "#ffffff");
   setColor(windowColor, "#ffffff");
   setColor(flowers, "#ffffff");
@@ -91,7 +141,7 @@ function init() {
   setColor(counter, "#ffffff");
   setColor(over, "#ffffff");
   setColor(under, "#ffffff");
-  setColor(wall, "#ffffff");
+  setColor(wall, "#ffffff");} */
 
   // event listeners
 
@@ -101,7 +151,7 @@ function init() {
     currentColor = color.hexString;
   });
 
-  //color an element in the image
+  //add a color to an element in the image
 
   windowOutsite.addEventListener("click", (event) => {
     setColor(windowOutsite, currentColor);
@@ -190,27 +240,15 @@ function init() {
     });
   });
 
+  // save preferences
+
+  document.querySelector(".button_save").addEventListener("click", saveDesign);
+
   //get to the initial stage
 
-  document.querySelector(".button_clear").addEventListener("click", () => {
-    console.log("clear colors");
-    windowOutsite.style.fill = "#ffffff";
-    windowColor.style.fill = "#ffffff";
-    flowers.style.fill = "#ffffff";
-    emhatte.style.fill = "#ffffff";
-    sink.style.fill = "#ffffff";
-    oven.style.fill = "#ffffff";
-    oven_details.style.fill = "#ffffff";
-    pot.style.fill = "#ffffff";
-    floor.style.fill = "#ffffff";
-    sokkel.style.fill = "#ffffff";
-    sides.style.fill = "#ffffff";
-    tiles.style.fill = "#ffffff";
-    counter.style.fill = "#ffffff";
-    over.style.fill = "#ffffff";
-    under.style.fill = "#ffffff";
-    wall.style.fill = "#ffffff";
-  });
+  document.querySelector(".button_clear").addEventListener("click", resetOptions);
+
+
 
   // Add addson
 
@@ -221,10 +259,11 @@ function toggleOption(event) {
   const target = event.currentTarget;
   const feature = target.dataset.feature;
   console.log(feature);
-  // Toggle feature in "model"
+  
+  // Toggle feature in "model" 
   features[feature] = !features[feature];
-
-   // If feature is turned on:
+  
+  // If feature is turned on:
   // - mark target as chosen (add class "chosen")
   // - un-hide the feature-layer(s) in the #product-preview;
   // - create featureElement and append to #selected ul
@@ -233,18 +272,20 @@ function toggleOption(event) {
 
   if (features[feature]) {
     // feature added
+    
     console.log(`Feature ${feature} is turned on!`);
+    
     target.classList.add("chosen");
     document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
-    document.querySelector(".selected_option").appendChild(createFeatureElement(feature));
-    const firstFrame = document.querySelector(`img[data-feature="${feature}"]`).getBoundingClientRect();
-    const lastFrame = document.querySelector(`li[data-feature="${feature}"]`).getBoundingClientRect();
+    document.querySelector("#selected ul").appendChild(createFeatureElement(feature));
+    const firstFrame = document.querySelector(`.addons img[data-feature="${feature}"]`).getBoundingClientRect();
+    const lastFrame = document.querySelector(`div[data-feature="${feature}"]`).getBoundingClientRect();
     const deltaX = firstFrame.left - lastFrame.left;
     const deltaY = firstFrame.top - lastFrame.top;
     const deltaWidth = firstFrame.width / lastFrame.width;
     const deltaHeight = firstFrame.height / lastFrame.height;
 
-    document.querySelector(`li[data-feature="${feature}"]`).animate(
+    document.querySelector(`div[data-feature="${feature}"]`).animate(
       [
         { transformOrigin: "top left", transform: `translate(${deltaX}px, ${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` },
         { tranformOrigin: "top left", transform: "none" },
@@ -263,44 +304,102 @@ function toggleOption(event) {
     console.log(`Feature ${feature} is turned off!`);
     document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.add("hide");
     target.classList.remove("chosen");
-    const featureElement = document.querySelector(`#selected li[data-feature="${feature}"]`);
-    const firstFrame = document.querySelector(`.addons [data-feature="${feature}"]`).getBoundingClientRect();
+    const featureElement = document.querySelector(`#selected div[data-feature="${feature}"]`);
+    const firstFrame = document.querySelector(`.addons img[data-feature="${feature}"]`).getBoundingClientRect();
     const lastFrame = featureElement.getBoundingClientRect();
     const deltaX = firstFrame.left - lastFrame.left;
     const deltaY = lastFrame.top - firstFrame.top;
     const deltaWidth = firstFrame.width / lastFrame.width;
     const deltaHeight = firstFrame.height / lastFrame.height;
 
-    featureElement.animate(
-      [
-        { transformOrigin: "top left", 
-        transform: `translate(${deltaX}px, -${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` }], 
-        { duration: 200, easing: "ease-in-out" });
+    featureElement.animate([{ transformOrigin: "top left", transform: `translate(${deltaX}px, -${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` }], { duration: 200, easing: "ease-in-out" });
 
-        Promise.all(
-          featureElement.getAnimations()
-            .map(animation => animation.finished)
-        ).then(() => featureElement.remove());
+    Promise.all(featureElement.getAnimations().map((animation) => animation.finished)).then(() => featureElement.remove());
 
-    featureElement.addEventListener("animationend", featureElement.remove())
-}
+    
+  }
 }
 
 // Create featureElement to be appended to #selected ul - could have used a <template> instead
 function createFeatureElement(feature) {
-    console.log("creating the feature")
-    const li = document.createElement("li");
-    li.dataset.feature = feature;
-  
-    const img = document.createElement("img");
-    img.src = `add_on/${feature}.png`;
-    img.alt = capitalize(feature);
-            
-    li.append(img);
-  
-    return li;
-  };
-  
-  function capitalize(text) {
-    return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
-  } 
+  const div = document.createElement("div");
+  const p = document.createElement("p");
+  p.textContent = "+";
+  div.dataset.feature = feature;
+  div.classList.add("selected_option");
+
+  const img = document.createElement("img");
+  if (feature === "knife") {
+    img.src = `assets/knifes.png`;
+  }
+  img.src = `assets/${feature}.png`;
+  img.alt = capitalize(feature);
+
+  div.append(img);
+  div.after(p);
+
+  return div;
+}
+
+function capitalize(text) {
+  return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
+}
+
+
+function resetOptions(){
+  console.log("clear choices");
+  localStorage.clear();
+  windowOutsite.style.fill = "#ffffff";
+  windowColor.style.fill = "#ffffff";
+  flowers.style.fill = "#ffffff";
+  emhatte.style.fill = "#ffffff";
+  sink.style.fill = "#ffffff";
+  oven.style.fill = "#ffffff";
+  oven_details.style.fill = "#ffffff";
+  pot.style.fill = "#ffffff";
+  floor.style.fill = "#ffffff";
+  sokkel.style.fill = "#ffffff";
+  sides.style.fill = "#ffffff";
+  tiles.style.fill = "#ffffff";
+  counter.style.fill = "#ffffff";
+  over.style.fill = "#ffffff";
+  under.style.fill = "#ffffff";
+  wall.style.fill = "#ffffff";
+
+  if (features.board === true) {
+      console.log("remove board")
+  }
+  if (features.knife === true) {
+  }
+  if (features.oven === true) {
+  }
+  if (features.toaster === true) {
+  }
+  if (features.solarfan === true) {
+  }
+  if (features.handles_cobber === true) {
+  }
+  if (features.handles_steel === true) {
+  }
+}
+
+//add feature to save design
+
+function saveDesign(){
+  console.log("saving stuff in local storage")
+  localStorage.setItem("windowOutsite", windowOutsite.style.fill);
+  localStorage.setItem("windowColor", windowColor.style.fill);
+  localStorage.setItem("flowers", flowers.style.fill);
+  localStorage.setItem("emhatte", emhatte.style.fill);
+  localStorage.setItem("sink", sink.style.fill);
+  localStorage.setItem("oven", oven.style.fill);
+  localStorage.setItem("ovenDetails", oven_details.style.fill);
+  localStorage.setItem("pot", pot.style.fill);
+  localStorage.setItem("floor", floor.style.fill);
+  localStorage.setItem("sokkel", sokkel.style.fill);
+  localStorage.setItem("sides", sides.style.fill);
+  localStorage.setItem("tiles", tiles.style.fill);
+  localStorage.setItem("counter", counter.style.fill);
+  localStorage.setItem("over", over.style.fill);
+  localStorage.setItem("under", under.style.fill);
+}

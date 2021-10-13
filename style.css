@@ -4,7 +4,9 @@ body {
 }
 
 /*-------- SVG PHOTO KITCHEN---------*/
-
+.cls-2{
+  fill:#ffffff
+}
 #shadow,
 .addons_container {
   pointer-events: none;
@@ -175,8 +177,13 @@ section {
   box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
 }
 
-/* CLEAR BUTTON */
-.button_clear {
+/* CLEAR BUTTON  AND SAVE BUTTON*/
+
+#buttons {
+display: flex;
+gap: 2vw;
+}
+.button {
   width: 12vw;
   height: 4vw;
   background-color: white;
@@ -190,7 +197,8 @@ section {
   cursor: pointer;
 }
 
-.button_clear img {
+
+.button img {
   width: 2vw;
 }
 .button_clear:hover {
@@ -204,14 +212,21 @@ section {
 /*-------- SELECTED --------*/
 #selected {
   margin-left: 5vw;
+  display:grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .option_logo {
   width: 4vw;
 }
 
-ul {
+
+#selected ul {
+  grid-column: 1;
+  grid-row:2;
   display: flex;
+  align-content: center;
   gap: 2vw;
   padding-left: 0;
 }
@@ -219,12 +234,21 @@ ul {
 .selected_option {
   width: 4vw;
   height: 4vw;
-  border: dashed 3px black;
+}
+/* .selected_option::after {
+  content: "+";
+} */
+
+.selected_option img {
+ max-height: 100%;
+ max-width: 4vw;
 }
 
 .price {
+  grid-column: 2;
+  grid-row:2;
+  margin-left: 5vw;
   display: flex;
-  margin-left: 17vw;
   gap: 3vw;
 }
 
@@ -240,4 +264,8 @@ path {
 
 .colors {
   cursor: url(icons/1x/paint.png), auto;
+}
+
+.chosen {
+  filter:opacity(50%)
 }
