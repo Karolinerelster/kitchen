@@ -78,70 +78,133 @@ function init() {
   console.log("init");
 
   //first, check if there is something in the localStorage
-  if(localStorage.length >0){
+  if (localStorage.length > 0) {
     console.log("local storage is", localStorage);
     let storagedwindowOutsite = localStorage.getItem("windowOutsite");
-  let storagedwindowColor = localStorage.getItem("windowColor");
-  let storagedflowers = localStorage.getItem("flowers");
-  let storagedemhatte = localStorage.getItem("emhatte");
-  let storagedsink = localStorage.getItem("sink");
-  let storagedoven = localStorage.getItem("oven");
-  let storagedovenDetails = localStorage.getItem("ovenDetails");
-  let storagedpot = localStorage.getItem("pot");
-  let storagedfloor = localStorage.getItem("floor");
- let  storagedsokkel = localStorage.getItem("sokkel");
- let  storagedsides = localStorage.getItem("sides");
- let  storagedtiles = localStorage.getItem("tiles");
-  let storagedcounter = localStorage.getItem("counter");
- let  storagedover = localStorage.getItem("over");
-  let storagedunder = localStorage.getItem("under");
-  if (storagedwindowOutsite != ""){setColor(windowOutsite, storagedwindowOutsite)}
-  else {setColor(windowOutsite, "#ffffff")};
-  if (storagedwindowColor != ""){setColor(windowColor, storagedwindowColor)}
-else {setColor(windowColor, "#ffffff")};
-  if (flowers != ""){setColor(flowers, storagedflowers)}
- else {setColor(flowers, "#ffffff")};
-  if (storagedemhatte != ""){setColor(emhatte, storagedemhatte)}
- else {setColor(emhatte, "#ffffff")};
-  if (storagedsink != ""){setColor(sink, storagedsink)}
- else {setColor(sink, "#ffffff")};
-  if (storagedoven != ""){setColor(oven, storagedoven)}
-  else {setColor(oven, "#ffffff")};
-  if (storagedovenDetails != ""){setColor(oven_details, storagedovenDetails)}
-  else {setColor(oven_details, "#ffffff")};
-  if (storagedpot != ""){setColor(pot, storagedpot)}
-  else {setColor(pot, "#ffffff")};
-  if (floor != ""){setColor(floor, storagedfloor)}
- else {setColor(floor, "#ffffff")};
-  if (storagedsokkel != ""){setColor(sokkel, storagedsokkel)}
- else {setColor(sokkel, "#ffffff")};
-  if (storagedsides != ""){setColor(sides, storagedsides)}
-  else {setColor(sides, "#ffffff")};
-  if (storagedtiles!= ""){setColor(tiles, storagedtiles)}
-  else {setColor(tiles, "#ffffff")};
-  if (storagedcounter != ""){setColor(counter, storagedcounter)}
-  else {setColor(counter, "#ffffff")};
-  if (storagedover != ""){setColor(over, storagedover)}
-  else {setColor(over, "#ffffff")};
-  if (storagedunder != ""){setColor(under, storagedunder)}
-  else {setColor(under, "#ffffff")}
-  }  /* else{
-  setColor(windowOutsite, "#ffffff");
-  setColor(windowColor, "#ffffff");
-  setColor(flowers, "#ffffff");
-  setColor(emhatte, "#ffffff");
-  setColor(sink, "#ffffff");
-  setColor(oven, "#ffffff");
-  setColor(oven_details, "#ffffff");
-  setColor(pot, "#ffffff");
-  setColor(floor, "#ffffff");
-  setColor(sokkel, "#ffffff");
-  setColor(sides, "#ffffff");
-  setColor(tiles, "#ffffff");
-  setColor(counter, "#ffffff");
-  setColor(over, "#ffffff");
-  setColor(under, "#ffffff");
-  setColor(wall, "#ffffff");} */
+    let storagedwindowColor = localStorage.getItem("windowColor");
+    let storagedflowers = localStorage.getItem("flowers");
+    let storagedemhatte = localStorage.getItem("emhatte");
+    let storagedsink = localStorage.getItem("sink");
+    let storagedoven = localStorage.getItem("oven");
+    let storagedovenDetails = localStorage.getItem("ovenDetails");
+    let storagedpot = localStorage.getItem("pot");
+    let storagedfloor = localStorage.getItem("floor");
+    let storagedsokkel = localStorage.getItem("sokkel");
+    let storagedsides = localStorage.getItem("sides");
+    let storagedtiles = localStorage.getItem("tiles");
+    let storagedcounter = localStorage.getItem("counter");
+    let storagedover = localStorage.getItem("over");
+    let storagedunder = localStorage.getItem("under");
+    if (storagedwindowOutsite != "") {
+      setColor(windowOutsite, storagedwindowOutsite);
+    } else {
+      setColor(windowOutsite, "#ffffff");
+    }
+    if (storagedwindowColor != "") {
+      setColor(windowColor, storagedwindowColor);
+    } else {
+      setColor(windowColor, "#ffffff");
+    }
+    if (flowers != "") {
+      setColor(flowers, storagedflowers);
+    } else {
+      setColor(flowers, "#ffffff");
+    }
+    if (storagedemhatte != "") {
+      setColor(emhatte, storagedemhatte);
+    } else {
+      setColor(emhatte, "#ffffff");
+    }
+    if (storagedsink != "") {
+      setColor(sink, storagedsink);
+    } else {
+      setColor(sink, "#ffffff");
+    }
+    if (storagedoven != "") {
+      setColor(oven, storagedoven);
+    } else {
+      setColor(oven, "#ffffff");
+    }
+    if (storagedovenDetails != "") {
+      setColor(oven_details, storagedovenDetails);
+    } else {
+      setColor(oven_details, "#ffffff");
+    }
+    if (storagedpot != "") {
+      setColor(pot, storagedpot);
+    } else {
+      setColor(pot, "#ffffff");
+    }
+    if (floor != "") {
+      setColor(floor, storagedfloor);
+    } else {
+      setColor(floor, "#ffffff");
+    }
+    if (storagedsokkel != "") {
+      setColor(sokkel, storagedsokkel);
+    } else {
+      setColor(sokkel, "#ffffff");
+    }
+    if (storagedsides != "") {
+      setColor(sides, storagedsides);
+    } else {
+      setColor(sides, "#ffffff");
+    }
+    if (storagedtiles != "") {
+      setColor(tiles, storagedtiles);
+    } else {
+      setColor(tiles, "#ffffff");
+    }
+    if (storagedcounter != "") {
+      setColor(counter, storagedcounter);
+    } else {
+      setColor(counter, "#ffffff");
+    }
+    if (storagedover != "") {
+      setColor(over, storagedover);
+    } else {
+      setColor(over, "#ffffff");
+    }
+    if (storagedunder != "") {
+      setColor(under, storagedunder);
+    } else {
+      setColor(under, "#ffffff");
+    }
+
+    //get addons stored in local storage
+  console.log("This is in local storage", localStorage.getItem("handles_cobber"));
+  console.log("This is in local storage", localStorage.getItem("board"));
+
+  if (localStorage.getItem("board") === "true") {
+    let feature = "board"
+    addElement(feature);
+  }
+  if (localStorage.getItem("knife") === "true") {
+    let feature = "knife"
+    addElement(feature);
+  }
+  if (localStorage.getItem("oven") === "true") {
+    let feature = "oven"
+    addElement(feature);
+  }
+  if (localStorage.getItem("toaster") === "true") {
+    let feature = "toaster"
+    addElement(feature);
+  }
+  if (localStorage.getItem("solarfan") === "true") {
+    let feature = "solarfan"
+    addElement(feature);
+  }
+  if (localStorage.getItem("handles_cobber") === "true") {
+    let feature = "handles_cobber"
+    addElement(feature);
+  }
+  if (localStorage.getItem("handles_steel") === "true") {
+    let feature = "handles_steel"
+    addElement(feature);
+  }
+  } 
+  
 
   // event listeners
 
@@ -155,81 +218,65 @@ else {setColor(windowColor, "#ffffff")};
 
   windowOutsite.addEventListener("click", (event) => {
     setColor(windowOutsite, currentColor);
-    console.log(event.target);
   });
 
   wall.addEventListener("click", (event) => {
     setColor(wall, currentColor);
-    console.log(event.target);
   });
 
   windowColor.addEventListener("click", (event) => {
     setColor(windowColor, currentColor);
-    console.log(event.target);
   });
 
   flowers.addEventListener("click", (event) => {
     setColor(flowers, currentColor);
-    console.log(event.target);
   });
 
   emhatte.addEventListener("click", (event) => {
     setColor(emhatte, currentColor);
-    console.log(event.target);
   });
 
   floor.addEventListener("click", (event) => {
     setColor(floor, currentColor);
-    console.log(event.target);
   });
 
   oven.addEventListener("click", (event) => {
     setColor(oven, currentColor);
-    console.log(event.target);
   });
 
   oven_details.addEventListener("click", (event) => {
     setColor(oven_details, currentColor);
-    console.log(event.target);
   });
 
   sides.addEventListener("click", (event) => {
     setColor(sides, currentColor);
-    console.log(event.target);
   });
 
   sokkel.addEventListener("click", (event) => {
     setColor(sokkel, currentColor);
-    console.log(event.target);
   });
   tiles.addEventListener("click", (event) => {
     setColor(tiles, currentColor);
-    console.log(event.target);
   });
 
   counter.addEventListener("click", (event) => {
     setColor(counter, currentColor);
-    console.log(event.target);
   });
 
   over.addEventListener("click", (event) => {
     setColor(over, currentColor);
-    console.log(event.target);
   });
 
   under.addEventListener("click", (event) => {
     setColor(under, currentColor);
-    console.log(event.target);
   });
 
   sink.addEventListener("click", (event) => {
     setColor(sink, currentColor);
-    console.log(event.target);
   });
 
   pot.addEventListener("click", (event) => {
     setColor(pot, currentColor);
-    console.log(event.target);
   });
 
   // suggested colors selected
@@ -248,8 +295,6 @@ else {setColor(windowColor, "#ffffff")};
 
   document.querySelector(".button_clear").addEventListener("click", resetOptions);
 
-
-
   // Add addson
 
   document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
@@ -259,10 +304,10 @@ function toggleOption(event) {
   const target = event.currentTarget;
   const feature = target.dataset.feature;
   console.log(feature);
-  
-  // Toggle feature in "model" 
+
+  // Toggle feature in "model"
   features[feature] = !features[feature];
-  
+
   // If feature is turned on:
   // - mark target as chosen (add class "chosen")
   // - un-hide the feature-layer(s) in the #product-preview;
@@ -272,9 +317,9 @@ function toggleOption(event) {
 
   if (features[feature]) {
     // feature added
-    
+
     console.log(`Feature ${feature} is turned on!`);
-    
+
     target.classList.add("chosen");
     document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
     document.querySelector("#selected ul").appendChild(createFeatureElement(feature));
@@ -315,8 +360,6 @@ function toggleOption(event) {
     featureElement.animate([{ transformOrigin: "top left", transform: `translate(${deltaX}px, -${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` }], { duration: 200, easing: "ease-in-out" });
 
     Promise.all(featureElement.getAnimations().map((animation) => animation.finished)).then(() => featureElement.remove());
-
-    
   }
 }
 
@@ -345,10 +388,12 @@ function capitalize(text) {
   return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
 }
 
+function resetOptions() {
 
-function resetOptions(){
-  console.log("clear choices");
+  //clean local storage
   localStorage.clear();
+
+  //set colors to initial colors
   windowOutsite.style.fill = "#ffffff";
   windowColor.style.fill = "#ffffff";
   flowers.style.fill = "#ffffff";
@@ -367,26 +412,40 @@ function resetOptions(){
   wall.style.fill = "#ffffff";
 
   if (features.board === true) {
-      console.log("remove board")
+    console.log("remove board");
+    let element = "board"
+    removeElement(element);
   }
   if (features.knife === true) {
+    let element = "knife"
+    removeElement(element);
   }
   if (features.oven === true) {
+    let element = "oven"
+    removeElement(element);
   }
   if (features.toaster === true) {
+    let element = "toaster"
+    removeElement(element);
   }
   if (features.solarfan === true) {
+    let element = "solarfan"
+    removeElement(element);
   }
   if (features.handles_cobber === true) {
+    let element = "handles_cobber"
+    removeElement(element);
   }
   if (features.handles_steel === true) {
+    let element = "handles_steel"
+    removeElement(element);
   }
 }
 
 //add feature to save design
 
-function saveDesign(){
-  console.log("saving stuff in local storage")
+function saveDesign() {
+  console.log("saving stuff in local storage");
   localStorage.setItem("windowOutsite", windowOutsite.style.fill);
   localStorage.setItem("windowColor", windowColor.style.fill);
   localStorage.setItem("flowers", flowers.style.fill);
@@ -402,4 +461,41 @@ function saveDesign(){
   localStorage.setItem("counter", counter.style.fill);
   localStorage.setItem("over", over.style.fill);
   localStorage.setItem("under", under.style.fill);
+  if (features.board === true) {
+    localStorage.setItem("board", true);
+  }
+  if (features.knife === true) {
+    localStorage.setItem("knife", true);
+  }
+  if (features.oven === true) {
+    localStorage.setItem("oven", true);
+  }
+  if (features.toaster === true) {
+    localStorage.setItem("toaster", true);
+  }
+  if (features.solarfan === true) {
+    localStorage.setItem("solarfan", true);
+  }
+  if (features.handles_cobber === true) {
+    localStorage.setItem("handles_cobber", true);
+  }
+  if (features.handles_steel === true) {
+    localStorage.setItem("handles_steel", true);
+  }
+}
+
+
+function addElement(feature){
+  console.log("adding selected feature");
+  document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
+  document.querySelector("#selected ul").appendChild(createFeatureElement(feature));
+};
+
+
+function removeElement(element){
+  console.log("removing element");
+  document.querySelector(`.addons_container img[data-feature="${element}"]`).classList.add("hide");
+  document.querySelector(`#selected div[data-feature="${element}"]`).remove();
+  document.querySelector(`.addons img[data-feature="${element}"]`).classList.remove("chosen");
+  features[element] = false;
 }
