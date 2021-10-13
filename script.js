@@ -215,6 +215,25 @@ function init() {
             currentColor = event.target.style.backgroundColor;
             console.log("color clicked", currentColor);
         })
-    })
+    });
+    document.querySelector(".button_clear").addEventListener("click", () => {
+      console.log("clear colors")
+    windowOutsite.style.fill = "#ffffff";
+    windowColor.style.fill = "#ffffff";
+    flowers.style.fill = "#ffffff";
+    emhatte.style.fill = "#ffffff";
+    sink.style.fill = "#ffffff";
+    oven.style.fill = "#ffffff";
+    oven_details.style.fill = "#ffffff";
+    pot.style.fill = "#ffffff";
+    floor.style.fill = "#ffffff";
+    sokkel.style.fill = "#ffffff";
+    sides.style.fill = "#ffffff";
+    tiles.style.fill = "#ffffff";
+    counter.style.fill = "#ffffff";
+    over.style.fill = "#ffffff";
+    under.style.fill = "#ffffff";
+    wall.style.fill = "#ffffff";
+  });
 
 };
