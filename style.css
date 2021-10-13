@@ -85,19 +85,55 @@ section {
 }
 
 /* ADD ON'S */
-.addon1 {
-  width: 3vw;
-  height: 3vw;
-}
+.row1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
-.addons {
-  display: flex;
   gap: 1vw;
 }
 
-.option img {
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1vw;
+}
+
+/* .option img {
   width: 1vw;
   height: auto;
+} */
+
+[data-feature="board"] {
+  height: 6vw;
+}
+
+[data-feature="handles_cobber"] {
+  height: 2vw;
+}
+[data-feature="handles_steel"] {
+  width: 5vw;
+  padding-bottom: 1vw;
+  margin-left: 3vw;
+}
+[data-feature="knife"] {
+  height: 6vw;
+}
+[data-feature="oven"] {
+  height: 6vw;
+}
+[data-feature="toaster"] {
+  height: 6vw;
+}
+
+.handles {
+  font-size: 1rem;
+  margin-bottom: 1vw;
+}
+
+.handles_div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 /* COLOR-SELECTOR */
