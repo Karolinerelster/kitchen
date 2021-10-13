@@ -489,6 +489,8 @@ function addElement(feature){
   console.log("adding selected feature");
   document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
   document.querySelector("#selected ul").appendChild(createFeatureElement(feature));
+  document.querySelector(`.addons img[data-feature="${feature}"]`).classList.add("chosen");
+  features[feature] = true;
 };
 
 
