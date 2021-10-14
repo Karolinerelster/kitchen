@@ -115,6 +115,11 @@ section {
   height: auto;
 } */
 
+.addons img {
+  margin-right: 2vw;
+  cursor: pointer;
+}
+
 .addons [data-feature="board"] {
   height: 6vw;
 }
