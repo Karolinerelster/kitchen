@@ -95,6 +95,8 @@ function init() {
     let storagedcounter = localStorage.getItem("counter");
     let storagedover = localStorage.getItem("over");
     let storagedunder = localStorage.getItem("under");
+    let storagedwall = localStorage.getItem("wall");
+
     if (storagedwindowOutsite != "") {
       setColor(windowOutsite, storagedwindowOutsite);
     } else {
@@ -169,6 +171,11 @@ function init() {
       setColor(under, storagedunder);
     } else {
       setColor(under, "#ffffff");
+    }
+    if (storagedwall != "") {
+        setColor(wall, storagedwall);
+    } else {
+        setColor(wall, "#ffffff");
     }
 
     //get addons stored in local storage
@@ -438,6 +445,8 @@ function saveDesign() {
   localStorage.setItem("counter", counter.style.fill);
   localStorage.setItem("over", over.style.fill);
   localStorage.setItem("under", under.style.fill);
+  localStorage.setItem("wall", wall.style.fill);
+
   if (features.board === true) {
     localStorage.setItem("board", true);
   }

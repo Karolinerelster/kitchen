@@ -4,8 +4,8 @@ body {
 }
 
 /*-------- SVG PHOTO KITCHEN---------*/
-.cls-2{
-  fill:#ffffff
+.cls-2 {
+  fill: #ffffff;
 }
 #shadow,
 .addons_container {
@@ -35,30 +35,36 @@ header {
 
 /*-------------- TEXT -------------*/
 h1 {
-  font-family: "Montserrat", sans-serif;
   cursor: pointer;
-  font-weight: 400;
   font-size: 2rem;
   color: black;
   position: relative;
   text-transform: uppercase;
+  font-family: ballinger-condensed, sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
 
 h2 {
   margin-right: 11vw;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-family: ballinger-condensed, sans-serif;
+  font-weight: 600;
 }
 
 h3 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-family: ballinger-condensed, sans-serif;
+  font-weight: 100;
   font-size: 1.7rem;
+  margin-top: 5vh;
+}
+
+.h3_addon {
+  margin-top: 0;
 }
 
 p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-family: ballinger-condensed, sans-serif;
+  font-weight: 100;
   font-size: 2rem;
   margin-top: 1vw;
   margin-bottom: 0;
@@ -68,6 +74,7 @@ p {
 section {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
+  align-items: center;
 }
 
 #options {
@@ -87,6 +94,7 @@ section {
 }
 
 /* ADD ON'S */
+
 .row1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -105,6 +113,11 @@ section {
   width: 1vw;
   height: auto;
 } */
+
+.addons img {
+  margin-right: 2vw;
+  cursor: pointer;
+}
 
 .addons [data-feature="board"] {
   height: 6vw;
@@ -138,25 +151,33 @@ section {
   grid-template-columns: 1fr 1fr;
 }
 
+#color_wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 5vw;
+}
 /* COLOR-SELECTOR */
 .colors {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 1vw;
+  gap: 0.5vw;
   margin-bottom: 2vw;
+  width: 18vw;
 }
 
 .color-selector {
   display: inline-block;
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 2.5vw;
+  height: 2.5vw;
   border-radius: 1.75vw;
   box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
 }
 
 #picker {
   margin-bottom: 2vw;
+  margin-top: 2vw;
+  cursor: pointer;
 }
 
 .IroColorPicker {
@@ -180,8 +201,8 @@ section {
 /* CLEAR BUTTON  AND SAVE BUTTON*/
 
 #buttons {
-display: flex;
-gap: 2vw;
+  display: flex;
+  gap: 2vw;
 }
 .button {
   width: 12vw;
@@ -190,13 +211,14 @@ gap: 2vw;
   border: solid black 1px;
   display: flex;
   justify-content: space-around;
-  font-size: 1.8rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-family: ballinger-condensed, sans-serif;
+  font-weight: 100;
   padding: 10px 0px;
   cursor: pointer;
+  align-items: center;
+  margin-top: 4vh;
 }
-
 
 .button img {
   width: 2vw;
@@ -205,14 +227,17 @@ gap: 2vw;
   box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
 }
 
-.button_clear:hover {
+.button_save:hover {
   box-shadow: rgba(128, 128, 128, 0.418) 3px 3px;
 }
-
+.button_save img {
+  width: 3vw;
+  align-items: center;
+}
 /*-------- SELECTED --------*/
 #selected {
   margin-left: 5vw;
-  display:grid;
+  display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr 1fr;
 }
@@ -221,10 +246,9 @@ gap: 2vw;
   width: 4vw;
 }
 
-
 #selected ul {
   grid-column: 1;
-  grid-row:2;
+  grid-row: 2;
   display: flex;
   align-content: center;
   gap: 2vw;
@@ -240,13 +264,13 @@ gap: 2vw;
 } */
 
 .selected_option img {
- max-height: 100%;
- max-width: 4vw;
+  max-height: 100%;
+  max-width: 4vw;
 }
 
 .price {
   grid-column: 2;
-  grid-row:2;
+  grid-row: 2;
   margin-left: 5vw;
   display: flex;
   gap: 3vw;
@@ -263,9 +287,9 @@ path {
 }
 
 .colors {
-  cursor: url(icons/1x/paint.png), auto;
+  cursor: pointer;
 }
 
 .chosen {
-  filter:opacity(50%)
+  filter: opacity(50%);
 }
