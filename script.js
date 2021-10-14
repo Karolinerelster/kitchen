@@ -321,67 +321,27 @@ function toggleOption(event) {
   const price = Number(target.dataset.price);
  
   console.log(feature, price);
-
-  // Toggle feature in "model"
-  features[feature] = !features[feature];
-
-  // If feature is turned on:
-  // - mark target as chosen (add class "chosen")
-  // - un-hide the feature-layer(s) in the #product-preview;
-  // - create featureElement and append to #selected ul
-  // - create FLIP-animation to animate featureElement from img in target, to
-  //   its intended position. Do it with normal animation or transition class!
-
-  if (features[feature]) {
-    // feature added
-
-    console.log(`Feature ${feature} is turned on!`);
-
-    target.classList.add("chosen");
-    document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
-    document.querySelector("#selected ul").appendChild(createFeatureElement(feature, price));
-
-    document.querySelector("#total span").textContent = initialPrice + price;
-    
-    const firstFrame = document.querySelector(`.addons img[data-feature="${feature}"]`).getBoundingClientRect();
-    const lastFrame = document.querySelector(`div[data-feature="${feature}"]`).getBoundingClientRect();
-    const deltaX = firstFrame.left - lastFrame.left;
-    const deltaY = firstFrame.top - lastFrame.top;
-    const deltaWidth = firstFrame.width / lastFrame.width;
-    const deltaHeight = firstFrame.height / lastFrame.height;
-
-    document.querySelector(`div[data-feature="${feature}"]`).animate(
-      [
-        { transformOrigin: "top left", transform: `translate(${deltaX}px, ${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` },
-        { tranformOrigin: "top left", transform: "none" },
-      ],
-      { duration: 200, easing: "ease-in-out" }
-    );
-    calculateTotalPrice()
+if (feature === "handles_steel"){
+  let otherHandle = document.querySelector(`.addons img[data-feature="handles_cobber"]`);
+  let otherHandleClassList = otherHandle.classList;
+  let handleString = otherHandleClassList.toLocaleString();
+  if (handleString.includes("chosen") === true){
+    console.log("you can't add the handle");
   }
-  // Else - if the feature (became) turned off:
-  // - no longer mark target as chosen
-  // - hide the feature-layer(s) in the #product-preview
-  // - find the existing featureElement in #selected ul
-  // - create FLIP-animation to animate featureElement to img in target
-  // - when animation is complete, remove featureElement from the DOM
   else {
-    // feature removed
-    console.log(`Feature ${feature} is turned off!`);
-    document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.add("hide");
-    target.classList.remove("chosen");
-    const featureElement = document.querySelector(`#selected div[data-feature="${feature}"]`);
-    const firstFrame = document.querySelector(`.addons img[data-feature="${feature}"]`).getBoundingClientRect();
-    const lastFrame = featureElement.getBoundingClientRect();
-    const deltaX = firstFrame.left - lastFrame.left;
-    const deltaY = lastFrame.top - firstFrame.top;
-    const deltaWidth = firstFrame.width / lastFrame.width;
-    const deltaHeight = firstFrame.height / lastFrame.height;
-
-    featureElement.animate([{ transformOrigin: "top left", transform: `translate(${deltaX}px, -${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` }], { duration: 200, easing: "ease-in-out" });
-
-    Promise.all(featureElement.getAnimations().map((animation) => animation.finished)).then(() => featureElement.remove()).then(()=>calculateTotalPrice());
-    
+    addPiece(feature, target, price)
+  }
+} else if (feature === "handles_cobber"){
+  let otherHandle = document.querySelector(`.addons img[data-feature="handles_steel"]`);
+  let otherHandleClassList = otherHandle.classList;
+  let handleString = otherHandleClassList.toLocaleString();
+  if (handleString.includes("chosen") === true){
+    console.log("you can't add the handle");
+  } else {
+    addPiece(feature, target, price)
+  }
+} else {
+  addPiece(feature, target, price)
   }
 }
 
@@ -539,4 +499,68 @@ finalPrice = finalPrice + Number(element.dataset.price)
 
 document.querySelector("#total span").textContent = finalPrice
 
+}
+
+function addPiece(feature, target, price){
+  // Toggle feature in "model"
+  features[feature] = !features[feature];
+
+  // If feature is turned on:
+  // - mark target as chosen (add class "chosen")
+  // - un-hide the feature-layer(s) in the #product-preview;
+  // - create featureElement and append to #selected ul
+  // - create FLIP-animation to animate featureElement from img in target, to
+  //   its intended position. Do it with normal animation or transition class!
+
+  if (features[feature]) {
+    // feature added
+
+    console.log(`Feature ${feature} is turned on!`);
+
+    target.classList.add("chosen");
+    document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.remove("hide");
+    document.querySelector("#selected ul").appendChild(createFeatureElement(feature, price));
+
+    document.querySelector("#total span").textContent = initialPrice + price;
+    
+    const firstFrame = document.querySelector(`.addons img[data-feature="${feature}"]`).getBoundingClientRect();
+    const lastFrame = document.querySelector(`div[data-feature="${feature}"]`).getBoundingClientRect();
+    const deltaX = firstFrame.left - lastFrame.left;
+    const deltaY = firstFrame.top - lastFrame.top;
+    const deltaWidth = firstFrame.width / lastFrame.width;
+    const deltaHeight = firstFrame.height / lastFrame.height;
+
+    document.querySelector(`div[data-feature="${feature}"]`).animate(
+      [
+        { transformOrigin: "top left", transform: `translate(${deltaX}px, ${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` },
+        { tranformOrigin: "top left", transform: "none" },
+      ],
+      { duration: 200, easing: "ease-in-out" }
+    );
+    calculateTotalPrice()
+  }
+  // Else - if the feature (became) turned off:
+  // - no longer mark target as chosen
+  // - hide the feature-layer(s) in the #product-preview
+  // - find the existing featureElement in #selected ul
+  // - create FLIP-animation to animate featureElement to img in target
+  // - when animation is complete, remove featureElement from the DOM
+  else {
+    // feature removed
+    console.log(`Feature ${feature} is turned off!`);
+    document.querySelector(`.addons_container img[data-feature="${feature}"]`).classList.add("hide");
+    target.classList.remove("chosen");
+    const featureElement = document.querySelector(`#selected div[data-feature="${feature}"]`);
+    const firstFrame = document.querySelector(`.addons img[data-feature="${feature}"]`).getBoundingClientRect();
+    const lastFrame = featureElement.getBoundingClientRect();
+    const deltaX = firstFrame.left - lastFrame.left;
+    const deltaY = lastFrame.top - firstFrame.top;
+    const deltaWidth = firstFrame.width / lastFrame.width;
+    const deltaHeight = firstFrame.height / lastFrame.height;
+
+    featureElement.animate([{ transformOrigin: "top left", transform: `translate(${deltaX}px, -${deltaY}px) scale(${deltaWidth}, ${deltaHeight})` }], { duration: 200, easing: "ease-in-out" });
+
+    Promise.all(featureElement.getAnimations().map((animation) => animation.finished)).then(() => featureElement.remove()).then(()=>calculateTotalPrice());
+    
+  }
 }
