@@ -293,3 +293,138 @@ path {
 .chosen {
   filter: opacity(50%);
 }
+
+@media (max-width: 1300px) {
+  .images_container img {
+    top: 6.3vw;
+  }
+}
+
+@media (max-width: 1100px) {
+  .images_container img {
+    top: 7.4vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .images_container img {
+    top: 8.4vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .images_container img {
+    top: 10.8vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .images_container img {
+    top: 10.8vw;
+    width: 100vw;
+  }
+
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  svg {
+    width: 100vw;
+  }
+
+  #options {
+    margin-left: 10vw;
+  }
+
+  .addons [data-feature="board"] {
+    height: 13vw;
+  }
+
+  .addons [data-feature="handles_cobber"] {
+    height: 4vw;
+  }
+  .addons [data-feature="handles_steel"] {
+    width: 15vw;
+    padding-bottom: 1vw;
+    margin-left: 3vw;
+  }
+  .addons [data-feature="knife"] {
+    height: 13vw;
+  }
+  .addons [data-feature="oven"] {
+    height: 13vw;
+  }
+  .addons [data-feature="toaster"] {
+    height: 13vw;
+  }
+
+  .h3_addon {
+    margin-top: 4vw;
+  }
+
+  .handles {
+    margin-top: 3vw;
+  }
+
+  .color-selector {
+    width: 6vw;
+    height: 6vw;
+    border-radius: 3vw;
+  }
+
+  .colors {
+    gap: 2.5vw;
+  }
+
+  #selected {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+
+  #selected ul {
+    align-items: center;
+  }
+
+  .price {
+    align-items: center;
+  }
+
+  p {
+    margin-top: 0vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .images_container img {
+    top: 14.3vw;
+    width: 100vw;
+  }
+
+  .button {
+    width: 23vw;
+    height: 8vw;
+  }
+
+  .button_clear img {
+    width: 4vw;
+  }
+
+  .button_save img {
+    width: 5vw;
+  }
+
+  .price p {
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    width: 9vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .images_container img {
+    top: 19vw;
+    width: 100vw;
+  }
+}
