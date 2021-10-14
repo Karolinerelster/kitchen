@@ -36,11 +36,10 @@ let colorPicker = new iro.ColorPicker("#picker", {
 });
 
 let initialPrice = Number(document.querySelector("#total span").textContent);
-
+let currentColor = "rgb(255, 227, 251)";
 
 document.addEventListener("DOMContentLoaded", start);
 
-let currentColor = "rgb(255, 227, 251)";
 
 async function start() {
   let response = await fetch("assets/kokken-02.svg");
