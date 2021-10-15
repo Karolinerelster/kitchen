@@ -118,6 +118,9 @@ section {
   margin-right: 2vw;
   cursor: pointer;
 }
+.addons img:hover{
+  transform: scale(1.1)
+}
 
 .addons [data-feature="board"] {
   height: 6vw;
@@ -297,6 +300,28 @@ path {
 .chosen {
   filter: opacity(50%);
 }
+
+@media (max-width: 2900px) {
+  .images_container img {
+    top: 3.5vw;
+  }
+}
+@media (max-width: 2200px) {
+  .images_container img {
+    top: 4vw;
+  }
+}
+@media (max-width: 1700px) {
+  .images_container img {
+    top: 5vw;
+  }
+}
+@media (max-width: 1500px) {
+  .images_container img {
+    top: 5.5vw;
+  }
+}
+
 
 @media (max-width: 1300px) {
   .images_container img {
