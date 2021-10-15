@@ -289,6 +289,10 @@ path {
 .colors {
   cursor: pointer;
 }
+.color-selector:hover {
+  transform: scale(1.1);
+  cursor: url(icons/1x/paint.png), auto;
+}
 
 .chosen {
   filter: opacity(50%);
